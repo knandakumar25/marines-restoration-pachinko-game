@@ -7,13 +7,14 @@ friction = 0.1
 bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p15ng"]
-radius = 78.0577
+radius = 10.6301
 
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bejs5")
 continuous_cd = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_dn0pd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
