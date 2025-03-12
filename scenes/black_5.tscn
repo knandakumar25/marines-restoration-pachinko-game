@@ -20,8 +20,19 @@ offset_bottom = 596.0
 text = "Quit"
 
 [node name="TextEdit" type="TextEdit" parent="TextureRect"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.5
+offset_top = -59.0
+offset_right = 573.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stepping through the final door, the protagonist feels free. He got rid of Varuna from his mind. He got all the supplies for rebuilding the ship from each level. The shipwreck begins to repair. However, he soon realizes that his crew’s memories are still trapped in Varuna’s grip. Realizing that the battle against Varuna is far from over, he decides to use his newfound knowledge to save them, even if it means he will have to face Varuna wrath one more time. The protagonist stands before his partially rebuilt ship, ready for the final battle against Varuna."
+wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Quit" to="." method="_on_quit_pressed"]

@@ -26,6 +26,7 @@ func _ready() -> void:
 	
 	# Instance the Boss and add it to the scene
 	boss = boss_scene.instantiate()
+	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
 	# Connect the goal's ball_scored signal to the boss's take_damage function
@@ -54,7 +55,7 @@ func _process(delta: float) -> void:
 	if not is_instance_valid(boss):
 		game_active = false # Stop spawning new balls
 		$TextureRect/Finished.text = "Boss defeated! The door is now open! On to next level!"
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/black_3.tscn")
 
 func spawn_ball():

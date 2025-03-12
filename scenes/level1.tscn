@@ -54,9 +54,10 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 
 [node name="PlayerHealth" type="Label" parent="."]
-offset_left = 204.0
-offset_right = 244.0
-offset_bottom = 23.0
+offset_left = 33.0
+offset_top = 11.0
+offset_right = 73.0
+offset_bottom = 34.0
 
 [node name="Peg2" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(913, 339)

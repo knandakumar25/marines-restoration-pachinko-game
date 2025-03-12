@@ -20,8 +20,20 @@ offset_bottom = 604.0
 text = "Continue"
 
 [node name="TextEdit" type="TextEdit" parent="TextureRect"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.5
+offset_top = -126.0
+offset_right = 576.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The torn page reveals that Varuna's judgment is passed through dreams. Varuna appears in those dreams in order to exploit his victims’  fears and guilt. The protagonist also learns that the only way to get rid of Varuna from his mind is through a series of doors in the cave he is currently in. Each door will give him a critical trial that will test his ability to face Varuna’s influence, combat his inner demons, and free himself from Varuna's wrath. The first door stands before him, with a script written in Sanskrit. As he touches the door, a pachinko machine appears in front of him. Varuna set up the cave so that each room can project the person's mind.
+The protagonist has to let the ball fall in the pachinko machine, which makes him realize the first door will only open if he successfully manages to defeat avatars (boss) of Varuna in each level. The ball represents his self-doubt. The map resembles his mind, with each path (level) so supposed to suppress his emotions and bad memories. As he passes each level, he gets more supplies to rebuild the ship. However, with each failure, the protagonist will feel like he is about to collapse,  Varuna’s whispers become louder, and start the level again to defeat the avatars."
+wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

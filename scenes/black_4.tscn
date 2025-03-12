@@ -20,8 +20,19 @@ offset_bottom = 600.0
 text = "Continue"
 
 [node name="TextEdit" type="TextEdit" parent="TextureRect"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -32.0
+offset_right = 574.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is it. This is the level that will take the protagonist to the endgame. The protagonist will now have to face the most difficult pachinko machine of them all. Then, he will be free from Varuna's wrath."
+wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Button4" to="." method="_on_button_4_pressed"]
