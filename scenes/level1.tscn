@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://cegot3c2qv225"]
+
+[ext_resource type="Script" path="res://scenes/level1.gd" id="1_ubtb4"]
+[ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
+[ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_j2l2o"]
+[ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
+[ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_kkl7v"]
+[ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_jtv2e"]
+[ext_resource type="Texture2D" uid="uid://kugp1dg653no" path="res://cave_door.png" id="7_6wpq8"]
+[ext_resource type="Script" path="res://scenes/walls.gd" id="8_xmhpt"]
+[ext_resource type="Script" path="res://scenes/walls2.gd" id="9_sk8c8"]
+[ext_resource type="Script" path="res://scenes/walls3.gd" id="10_2ru3h"]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource("1_ubtb4")
+ball_scene = ExtResource("2_b84l5")
+peg_scene = ExtResource("3_j2l2o")
+wall_scene = ExtResource("4_pnfuf")
+goal_scene = ExtResource("5_kkl7v")
+boss_scene = ExtResource("6_jtv2e")
+
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(575, 53)
+scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(510, 558)
+scale = Vector2(1154, 1452)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 1163.0
+offset_bottom = 1449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+texture = ExtResource("7_6wpq8")
+
+[node name="PlayerHealth" type="Label" parent="."]
+offset_left = 204.0
+offset_right = 244.0
+offset_bottom = 23.0
+
+[node name="Peg2" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(913, 339)
+
+[node name="Peg3" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(482, 583)
+
+[node name="Peg5" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(756, 726)
+
+[node name="Peg6" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(778, 631)
+
+[node name="Peg8" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(503, 747)
+
+[node name="Peg9" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(515, 283)
+
+[node name="Peg10" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(1018, 257)
+
+[node name="Peg11" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(682, 794)
+
+[node name="Peg12" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(475, 670)
+
+[node name="Walls" parent="." instance=ExtResource("4_pnfuf")]
+position = Vector2(100, 100)
+script = ExtResource("8_xmhpt")
+
+[node name="Walls2" parent="." instance=ExtResource("4_pnfuf")]
+position = Vector2(100, 400)
+script = ExtResource("9_sk8c8")
+
+[node name="Walls3" parent="." instance=ExtResource("4_pnfuf")]
+position = Vector2(100, 700)
+script = ExtResource("10_2ru3h")
