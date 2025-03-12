@@ -1,8 +1,6 @@
 extends Node2D
 
 @export var ball_scene: PackedScene
-@export var peg_scene: PackedScene
-@export var wall_scene: PackedScene
 @export var goal_scene: PackedScene
 @export var boss_scene: PackedScene
 @onready var spawner: Marker2D = $Spawner
@@ -14,6 +12,7 @@ var spawn_timer = 0.0  # Timer to control automatic ball spawning
 var spawn_interval = 2.0  # Time in seconds between each ball spawn
 var player_health: int = 100  # Player's health
 var y_threshold = 900  # Y-position threshold for detecting missed balls
+var game_active = true # Flag to control game activity
 
 # Max values for randomization
 var max_x = 1154
@@ -36,6 +35,9 @@ func _ready() -> void:
 	update_health_display()
 
 func _process(delta: float) -> void:
+	if not game_active:
+		return # Stop processing if game is over
+	
 	# Automatically spawn balls at regular intervals
 	spawn_timer += delta
 	if spawn_timer >= spawn_interval:
@@ -49,11 +51,18 @@ func _process(delta: float) -> void:
 			_on_health_reduced(-10)
 			ball.queue_free()  # Remove the ball
 
+	if not is_instance_valid(boss):
+		game_active = false # Stop spawning new balls
+		$TextureRect/Finished.text = "Boss defeated! The door is now open! On to next level!"
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file("res://scenes/black_3.tscn")
+
 func spawn_ball():
-	var ball = ball_scene.instantiate()
-	ball.position = spawner.position
-	add_child(ball)
-	ball.add_to_group("balls")  # Add ball to a group for easy tracking
+	if game_active: # Only spawn if the game is still active
+		var ball = ball_scene.instantiate()
+		ball.position = spawner.position
+		add_child(ball)
+		ball.add_to_group("balls")  # Add ball to a group for easy tracking
 
 # Function to reduce player health
 func _on_health_reduced(damage: int) -> void:
@@ -62,6 +71,8 @@ func _on_health_reduced(damage: int) -> void:
 	update_health_display()
 	if player_health <= 0:
 		print("Game Over!")
+		game_active = false # Stop spawning new balls
+		await get_tree().create_timer(1.5).timeout # Small delay before restarting
 		get_tree().reload_current_scene()
 		# End the game or reset the scene
 

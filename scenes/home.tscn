@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://ofm16mjqa02y"]
+
+[ext_resource type="Script" path="res://scenes/home.gd" id="1_7jkor"]
+[ext_resource type="Texture2D" uid="uid://bcygj3vainrf5" path="res://cave.png" id="2_2twbi"]
+[ext_resource type="Texture2D" uid="uid://dy3f2cubl1tq0" path="res://title.png" id="2_vx0qi"]
+
+[node name="Home" type="Node2D"]
+script = ExtResource("1_7jkor")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_2twbi")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.5
+offset_top = -209.5
+offset_right = 316.5
+offset_bottom = -118.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vx0qi")
+
+[node name="Button" type="Button" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -31.5
+offset_right = 113.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+
+[connection signal="pressed" from="TextureRect2/Button" to="." method="_on_button_pressed"]

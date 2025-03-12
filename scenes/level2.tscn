@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://ba5knm4mebcmc"]
+
+[ext_resource type="Script" path="res://scenes/level_2.gd" id="1_80hhe"]
+[ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_27m43"]
+[ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_crcr2"]
+[ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_lknbl"]
+[ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_aecsg"]
+[ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_786cx"]
+[ext_resource type="Texture2D" uid="uid://kugp1dg653no" path="res://cave_door.png" id="7_kdxxo"]
+[ext_resource type="Script" path="res://scenes/walls.gd" id="8_4625g"]
+[ext_resource type="Script" path="res://scenes/walls2.gd" id="9_m412s"]
+[ext_resource type="Script" path="res://scenes/walls3.gd" id="10_imd2c"]
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource("1_80hhe")
+ball_scene = ExtResource("2_27m43")
+goal_scene = ExtResource("5_aecsg")
+boss_scene = ExtResource("6_786cx")
+
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(575, 53)
+scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(510, 558)
+scale = Vector2(1154, 1452)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 1163.0
+offset_bottom = 1449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+texture = ExtResource("7_kdxxo")
+
+[node name="Finished" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.3
+anchor_right = 0.483
+anchor_bottom = 0.3
+offset_left = -0.382019
+offset_top = 278.9
+offset_right = 39.618
+offset_bottom = 301.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="PlayerHealth" type="Label" parent="."]
+offset_left = 204.0
+offset_right = 244.0
+offset_bottom = 23.0
+
+[node name="Peg2" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(755, 372)
+
+[node name="Peg3" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(553, 498)
+
+[node name="Peg5" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(756, 726)
+
+[node name="Peg6" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(406, 644)
+
+[node name="Peg8" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(503, 747)
+
+[node name="Peg9" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(515, 283)
+
+[node name="Peg10" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(676, 294)
+
+[node name="Peg11" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(416, 682)
+
+[node name="Peg12" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(382, 598)
+
+[node name="Peg13" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(529, 791)
+
+[node name="Peg14" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(715, 772)
+
+[node name="Peg15" parent="." instance=ExtResource("3_crcr2")]
+position = Vector2(693, 822)
+
+[node name="Walls" parent="." instance=ExtResource("4_lknbl")]
+position = Vector2(100, 100)
+script = ExtResource("8_4625g")
+
+[node name="Walls2" parent="." instance=ExtResource("4_lknbl")]
+position = Vector2(100, 400)
+script = ExtResource("9_m412s")
+
+[node name="Walls3" parent="." instance=ExtResource("4_lknbl")]
+position = Vector2(100, 700)
+script = ExtResource("10_imd2c")
+
+[node name="Level" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 162.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 40
+text = "Level 2"

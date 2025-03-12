@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cegot3c2qv225"]
 
-[ext_resource type="Script" path="res://scenes/level1.gd" id="1_ubtb4"]
+[ext_resource type="Script" path="res://scenes/level_1.gd" id="1_ubtb4"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
 [ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_j2l2o"]
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
@@ -14,8 +14,6 @@
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_ubtb4")
 ball_scene = ExtResource("2_b84l5")
-peg_scene = ExtResource("3_j2l2o")
-wall_scene = ExtResource("4_pnfuf")
 goal_scene = ExtResource("5_kkl7v")
 boss_scene = ExtResource("6_jtv2e")
 
@@ -39,6 +37,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 texture = ExtResource("7_6wpq8")
+
+[node name="Finished" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483
+anchor_top = 0.3
+anchor_right = 0.483
+anchor_bottom = 0.3
+offset_left = -0.382019
+offset_top = 270.9
+offset_right = 39.618
+offset_bottom = 293.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 
 [node name="PlayerHealth" type="Label" parent="."]
 offset_left = 204.0
@@ -83,3 +96,11 @@ script = ExtResource("9_sk8c8")
 [node name="Walls3" parent="." instance=ExtResource("4_pnfuf")]
 position = Vector2(100, 700)
 script = ExtResource("10_2ru3h")
+
+[node name="Level" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 162.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 40
+text = "Level 1"
