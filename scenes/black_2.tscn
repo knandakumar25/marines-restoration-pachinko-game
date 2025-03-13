@@ -32,7 +32,7 @@ offset_right = 573.0
 offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Varuna has been weakened. But, you are not done yet. Behind the first door, the protagonist finds some ship supplies. But, they are incomplete. The second door stands ahead, again with a script written in Sanskrit. Another pachinko machine activates, and he must get through and let go of his worst memory, which was the betrayal of a close friend. "
+text = "Varuna has been weakened. But, you are not done yet. Behind the first door, the protagonist frees his mind more from Varuna and finds some ship supplies. But, they are incomplete. The second door stands ahead, again with a script written in Sanskrit. Another pachinko machine activates, and he must get through and let go of his worst memory, the betrayal of a close friend, by which you would be more free from Varuna."
 wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]

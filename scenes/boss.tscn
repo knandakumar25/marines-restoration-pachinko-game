@@ -13,3 +13,4 @@ texture = ExtResource("2_rpuoe")
 offset_left = 100.0
 offset_right = 140.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30

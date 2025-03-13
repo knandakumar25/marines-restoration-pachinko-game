@@ -29,6 +29,8 @@ func _ready() -> void:
 	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
+	$PlayerHealth.position = Vector2(650, 900)
+	
 	# Connect the goal's ball_scored signal to the boss's take_damage function
 	goal.ball_scored.connect(boss.take_damage)
 
