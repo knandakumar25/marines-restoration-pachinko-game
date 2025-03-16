@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+# Used ChatGPT to generate code to initialize and manage block movement.
+
 @export var move_speed: float = 2.0 # Speed of movement
 @export var move_range: float = 1000.0 # Max movement distance
 

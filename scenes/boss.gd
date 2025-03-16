@@ -1,5 +1,7 @@
 extends Node2D
 
+# Used ChatGPT to generate code to initialize and manage boss health.
+
 @export var max_health: int = 100
 var current_health: int
 

@@ -1,5 +1,7 @@
 extends Area2D
 
+# Used ChatGPT to generate code to initialize and manage goal handling.
+
 signal ball_scored(damage) # Signal to track scoring
 
 @export var damage: int = 10 # Damage dealt to the boss

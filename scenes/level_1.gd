@@ -1,5 +1,7 @@
 extends Node2D
 
+# Used ChatGPT to generate code to initialize, build functions for game play and manage player health.
+
 @export var ball_scene: PackedScene
 @export var goal_scene: PackedScene
 @export var boss_scene: PackedScene
