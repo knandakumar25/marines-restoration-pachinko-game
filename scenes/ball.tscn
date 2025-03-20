@@ -14,7 +14,8 @@ physics_material_override = SubResource("PhysicsMaterial_bejs5")
 continuous_cd = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+position = Vector2(-0.5, 0.500001)
+scale = Vector2(0.0516667, 0.0483333)
 texture = ExtResource("1_dn0pd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

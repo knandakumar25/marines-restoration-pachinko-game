@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgbnmxt7t0q54"]
+
+[ext_resource type="Texture2D" uid="uid://buivyiags0g5n" path="res://family_orb.png" id="1_cc3hp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nt4qp"]
+radius = 44.4072
+
+[node name="FamilyOrb" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cc3hp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nt4qp")

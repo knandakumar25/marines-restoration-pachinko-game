@@ -1,21 +1,18 @@
 extends Node2D
 
-# Used ChatGPT to generate code to initialize, build functions for game play and manage player health.
-
 @export var ball_scene: PackedScene
 @export var goal_scene: PackedScene
 @export var boss_scene: PackedScene
-@onready var spawner: Marker2D = $Spawner
 @onready var player_health_label: Label = $PlayerHealth  # Reference to the PlayerHealth label
 
 var boss
 var goal
 var player_health: int = 100  # Player's health
 var y_threshold = 900  # Y-position threshold for detecting missed balls
+var game_active = true  # Flag to control game activity
 
-# Max values for randomization
-var max_x = 1154
-var max_y = 1452
+# Flag to control ball spawning cooldown
+var can_spawn: bool = true
 
 func _ready() -> void:
 	# Instance the Goal and add it to the scene
@@ -37,28 +34,43 @@ func _ready() -> void:
 	update_health_display()
 
 func _process(delta: float) -> void:
-	# Check for space bar or left mouse button press
-	if Input.is_action_just_pressed("spawn_ball"):
-		spawn_ball()
-	
-	# Check if any balls have pressed the y-axis threshold
+	if not game_active:
+		return  # Stop processing if game is over
+
+	# Check if any balls have passed the y-axis threshold
 	for ball in get_tree().get_nodes_in_group("balls"):
 		if ball.position.y > y_threshold:
 			print("Ball passed the threshold!")
 			_on_health_reduced(-10)
-			ball.queue_free() # Remove the ball
-	
-	# Check if the boss no longer exists to transition to the next level
+			ball.queue_free()  # Remove the ball
+
 	if not is_instance_valid(boss):
-		$TextureRect/Finished.text = "Boss defeated! On to next level!"
+		game_active = false  # Stop spawning new balls
+		$TextureRect/Finished.text = "Boss defeated! The door is now open! On to next level!"
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/black_2.tscn")
 
-func spawn_ball():
-	var ball = ball_scene.instantiate()
-	ball.position = spawner.position
-	add_child(ball)
-	ball.add_to_group("balls")  # Add ball to a group for easy tracking
+# Function to spawn a ball at the top of the screen at the mouse's x-coordinate
+func spawn_ball_at_mouse(mouse_x: float) -> void:
+	if game_active:
+		var ball = ball_scene.instantiate()
+		# Set position with x from the mouse and y at the top (0)
+		ball.position = Vector2(mouse_x, 0)
+		add_child(ball)
+		ball.add_to_group("balls")
+
+# Async function to spawn a ball and wait for a 2 second cooldown
+func spawn_ball_with_cooldown(mouse_x: float) -> void:
+	if can_spawn and game_active:
+		spawn_ball_at_mouse(mouse_x)
+		can_spawn = false
+		await get_tree().create_timer(2.0).timeout
+		can_spawn = true
+
+# Listen for mouse clicks to spawn a ball at the mouse's x-coordinate
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		spawn_ball_with_cooldown(event.position.x)
 
 # Function to reduce player health
 func _on_health_reduced(damage: int) -> void:
@@ -67,9 +79,9 @@ func _on_health_reduced(damage: int) -> void:
 	update_health_display()
 	if player_health <= 0:
 		print("Game Over!")
-		await get_tree().create_timer(1.5).timeout # Small delay before restarting
+		game_active = false  # Stop spawning new balls
+		await get_tree().create_timer(1.5).timeout  # Small delay before restarting
 		get_tree().reload_current_scene()
-		# End the game or reset the scene
 
 # Function to update the health label display
 func update_health_display() -> void:
