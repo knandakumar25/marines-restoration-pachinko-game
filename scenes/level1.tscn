@@ -1,16 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://cegot3c2qv225"]
+[gd_scene load_steps=13 format=3 uid="uid://cegot3c2qv225"]
 
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_ubtb4"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
 [ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_j2l2o"]
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
-[ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="5_bh6r3"]
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_kkl7v"]
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_jtv2e"]
+[ext_resource type="Texture2D" uid="uid://kugp1dg653no" path="res://cave_door.png" id="7_6wpq8"]
 [ext_resource type="Script" path="res://scenes/walls.gd" id="8_xmhpt"]
 [ext_resource type="Script" path="res://scenes/walls2.gd" id="9_sk8c8"]
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_2ru3h"]
-[ext_resource type="PackedScene" uid="uid://bgbnmxt7t0q54" path="res://scenes/family_orb.tscn" id="11_lw2ts"]
+
+[sub_resource type="Gradient" id="Gradient_7op2q"]
+offsets = PackedFloat32Array(0.987013, 0.993506, 1)
+colors = PackedColorArray(0.677213, 0, 0.0758604, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y2tfy"]
+gradient = SubResource("Gradient_7op2q")
+width = 300
+height = 100
+fill_from = Vector2(0.417431, 0.211009)
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_ubtb4")
@@ -37,7 +46,7 @@ offset_bottom = 1449.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-texture = ExtResource("5_bh6r3")
+texture = ExtResource("7_6wpq8")
 
 [node name="Finished" type="Label" parent="TextureRect"]
 layout_mode = 1
@@ -53,13 +62,6 @@ offset_bottom = 293.9
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 560.0
-offset_top = 2.00001
-offset_right = 860.0
-offset_bottom = 302.0
-scale = Vector2(0.1, 0.1)
 
 [node name="PlayerHealth" type="Label" parent="."]
 offset_left = 33.0
@@ -96,7 +98,7 @@ position = Vector2(682, 794)
 position = Vector2(475, 670)
 
 [node name="Walls" parent="." instance=ExtResource("4_pnfuf")]
-position = Vector2(100, 155)
+position = Vector2(100, 100)
 script = ExtResource("8_xmhpt")
 
 [node name="Walls2" parent="." instance=ExtResource("4_pnfuf")]
@@ -115,8 +117,12 @@ offset_bottom = 86.0
 theme_override_font_sizes/font_size = 40
 text = "Level 1"
 
-[node name="FamilyOrb" parent="." instance=ExtResource("11_lw2ts")]
-position = Vector2(935, 541)
-
-[node name="FamilyOrb2" parent="." instance=ExtResource("11_lw2ts")]
-position = Vector2(297, 850)
+[node name="Button" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 994.0
+offset_right = 715.0
+offset_bottom = 1075.0
+text = "Click Here"
+icon = SubResource("GradientTexture2D_y2tfy")
+icon_alignment = 1
+expand_icon = true
