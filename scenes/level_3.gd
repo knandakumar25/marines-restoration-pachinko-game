@@ -8,11 +8,8 @@ extends Node2D
 
 var boss
 var goal
-var spawn_timer = 0.0  # Timer to control automatic ball spawning
-var spawn_interval = 3.0  # Time in seconds between each ball spawn
 var player_health: int = 100  # Player's health
 var y_threshold = 900  # Y-position threshold for detecting missed balls
-var game_active = true # Flag to control game activity
 
 # Max values for randomization
 var max_x = 1154
@@ -29,7 +26,7 @@ func _ready() -> void:
 	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
-	$PlayerHealth.position = Vector2(800, 900)
+	$PlayerHealth.position = Vector2(650, 900)
 	
 	# Connect the goal's ball_scored signal to the boss's take_damage function
 	goal.ball_scored.connect(boss.take_damage)
@@ -38,34 +35,32 @@ func _ready() -> void:
 	update_health_display()
 
 func _process(delta: float) -> void:
-	if not game_active:
-		return # Stop processing if game is over
-	
-	# Automatically spawn balls at regular intervals
-	spawn_timer += delta
-	if spawn_timer >= spawn_interval:
-		spawn_timer = 0  # Reset timer
+	# Check for space bar or left mouse button press
+	if Input.is_action_just_pressed("spawn_ball"):
+		spawn_ball()
+		await get_tree().create_timer(1).timeout
+		spawn_ball()
+		await get_tree().create_timer(1).timeout
 		spawn_ball()
 	
-	# Check if any balls have passed the y-axis threshold
+	# Check if any balls have pressed the y-axis threshold
 	for ball in get_tree().get_nodes_in_group("balls"):
 		if ball.position.y > y_threshold:
 			print("Ball passed the threshold!")
 			_on_health_reduced(-10)
-			ball.queue_free()  # Remove the ball
-
+			ball.queue_free() # Remove the ball
+	
+	# Check if the boss no longer exists to transition to the next level
 	if not is_instance_valid(boss):
-		game_active = false # Stop spawning new balls
-		$TextureRect/Finished.text = "Boss defeated! The door is now open! On to next level!"
+		$TextureRect/Finished.text = "Boss defeated! On to next level!"
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/black_4.tscn")
 
 func spawn_ball():
-	if game_active: # Only spawn if the game is still active
-		var ball = ball_scene.instantiate()
-		ball.position = spawner.position
-		add_child(ball)
-		ball.add_to_group("balls")  # Add ball to a group for easy tracking
+	var ball = ball_scene.instantiate()
+	ball.position = spawner.position
+	add_child(ball)
+	ball.add_to_group("balls")  # Add ball to a group for easy tracking
 
 # Function to reduce player health
 func _on_health_reduced(damage: int) -> void:
@@ -74,7 +69,6 @@ func _on_health_reduced(damage: int) -> void:
 	update_health_display()
 	if player_health <= 0:
 		print("Game Over!")
-		game_active = false # Stop spawning new balls
 		await get_tree().create_timer(1.5).timeout # Small delay before restarting
 		get_tree().reload_current_scene()
 		# End the game or reset the scene
