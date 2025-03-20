@@ -9,13 +9,15 @@ extends Node2D
 
 var boss
 var goal
-var player_health: int = 100  # Player's health
+var player_health: int = 250  # Player's health
 var y_threshold = 900  # Y-position threshold for detecting missed balls
 var ball_count: int = 0
 var button_timer: float = 1.0
 var button_timer_running: bool = false
 var can_spawn: bool = true
 var game_active = true  # Flag to control game activity
+var goal_direction: int = 1 # 1 moves right and -1 moves left
+var goal_speed: float = 100.0
 
 # Max values for randomization
 var max_x = 1154
@@ -64,6 +66,10 @@ func _process(delta: float) -> void:
 		popup_button.text = "Press Me! Time Left: %1.f" %button_timer
 		if button_timer <= 0:
 			button_timer_running = false
+	goal.position.x += goal_speed * goal_direction * delta
+	var screen_width = get_viewport_rect().size.x
+	if goal.position.x <= 100 or goal.position.x >= screen_width - 100:
+		goal_direction *= -1
 
 func spawn_ball():
 	if can_spawn and game_active:
@@ -110,10 +116,12 @@ func show_popup_button() -> void:
 	await get_tree().create_timer(1.5).timeout
 	if popup_button.visible:
 		print("Button not pressed. Moving vase to the left.")
-		goal.position.x = 100
+		#goal.position.x = 100
+		goal.visible = false
 		popup_button.visible = false
 
 func _on_button_pressed() -> void:
 	print("Button pressed in time.")
 	popup_button.visible = false
-	goal.position.x = 575
+	#goal.position.x = 575
+	goal.visible = true
