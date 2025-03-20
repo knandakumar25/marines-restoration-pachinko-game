@@ -1,25 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpce37wueohid"]
+[gd_scene load_steps=15 format=3 uid="uid://cpce37wueohid"]
 
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="1_qtoa1"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_xd3gf"]
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="3_kix0e"]
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="4_ilcgg"]
-[ext_resource type="Texture2D" uid="uid://kugp1dg653no" path="res://cave_door.png" id="5_v380k"]
+[ext_resource type="Texture2D" uid="uid://cm4j1ncgx8235" path="res://background3.webp" id="5_yrhfl"]
 [ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="6_3l0g2"]
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="7_14dxx"]
 [ext_resource type="Script" path="res://scenes/walls.gd" id="8_3pj8f"]
 [ext_resource type="Script" path="res://scenes/walls2.gd" id="9_w6wqc"]
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_oq23g"]
+[ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_o01cj"]
 
-[sub_resource type="Gradient" id="Gradient_6e8gh"]
-offsets = PackedFloat32Array(0.987013, 0.993506, 1)
-colors = PackedColorArray(0.677213, 0, 0.0758604, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvq4s"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_eupc3"]
-gradient = SubResource("Gradient_6e8gh")
-width = 300
-height = 100
-fill_from = Vector2(0.417431, 0.211009)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7myb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubjjq"]
 
 [node name="Level 3" type="Node2D"]
 script = ExtResource("1_qtoa1")
@@ -46,7 +43,7 @@ offset_bottom = 1449.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-texture = ExtResource("5_v380k")
+texture = ExtResource("5_yrhfl")
 
 [node name="Finished" type="Label" parent="TextureRect"]
 layout_mode = 1
@@ -69,6 +66,7 @@ offset_top = 2.00001
 offset_right = 860.0
 offset_bottom = 302.0
 scale = Vector2(0.1, 0.1)
+color = Color(1, 1, 1, 0)
 
 [node name="PlayerHealth" type="Label" parent="."]
 offset_left = 33.0
@@ -78,49 +76,49 @@ offset_bottom = 34.0
 theme_override_font_sizes/font_size = 30
 
 [node name="Peg2" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(755, 372)
+position = Vector2(819, 466)
 
 [node name="Peg3" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(573, 498)
+position = Vector2(638, 481)
 
 [node name="Peg4" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(791, 558)
+position = Vector2(126, 726)
 
 [node name="Peg5" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(756, 726)
+position = Vector2(436, 851)
 
 [node name="Peg7" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(785, 675)
+position = Vector2(1088, 664)
 
 [node name="Peg16" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(785, 705)
+position = Vector2(777, 603)
 
 [node name="Peg6" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(406, 644)
+position = Vector2(72, 621)
 
 [node name="Peg8" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(503, 747)
+position = Vector2(451, 594)
 
 [node name="Peg9" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(515, 283)
+position = Vector2(584, 241)
 
 [node name="Peg10" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(676, 270)
+position = Vector2(382, 464)
 
 [node name="Peg11" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(416, 682)
+position = Vector2(895, 748)
 
 [node name="Peg12" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(382, 598)
+position = Vector2(591, 483)
 
 [node name="Peg13" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(529, 791)
+position = Vector2(544, 479)
 
 [node name="Peg14" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(715, 759)
+position = Vector2(313, 715)
 
 [node name="Peg15" parent="." instance=ExtResource("6_3l0g2")]
-position = Vector2(693, 822)
+position = Vector2(789, 860)
 
 [node name="Walls" parent="." instance=ExtResource("7_14dxx")]
 position = Vector2(100, 155)
@@ -143,11 +141,14 @@ theme_override_font_sizes/font_size = 40
 text = "Level 3"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 496.0
-offset_top = 994.0
-offset_right = 715.0
-offset_bottom = 1075.0
+offset_left = 582.0
+offset_top = 937.0
+offset_right = 849.0
+offset_bottom = 1201.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hvq4s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i7myb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ubjjq")
 text = "Click Here"
-icon = SubResource("GradientTexture2D_eupc3")
+icon = ExtResource("11_o01cj")
 icon_alignment = 1
 expand_icon = true

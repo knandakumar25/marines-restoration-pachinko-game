@@ -3,14 +3,20 @@ extends Node2D
 @export var ball_scene: PackedScene
 @export var goal_scene: PackedScene
 @export var boss_scene: PackedScene
+@onready var spawner: Marker2D = $Spawner
 @onready var player_health_label: Label = $PlayerHealth  # Reference to the PlayerHealth label
 @onready var popup_button: Button = $Button
 
 var boss
 var goal
+# Removed automatic spawning variables: spawn_timer and spawn_interval
 var player_health: int = 100  # Player's health
-var y_threshold = 900  # Y-position threshold for detecting missed balls
+var y_threshold = 900  # Y-position threshold (unused now)
 var game_active = true  # Flag to control game activity
+
+# Max values for randomization (unused in current code but available)
+var max_x = 1154
+var max_y = 1452
 
 # Flag to control ball spawning cooldown
 var can_spawn: bool = true
@@ -44,12 +50,13 @@ func _process(delta: float) -> void:
 	if not game_active:
 		return  # Stop processing if game is over
 
-	# Check if any balls have passed the y-axis threshold
-	for ball in get_tree().get_nodes_in_group("balls"):
-		if ball.position.y > y_threshold:
-			print("Ball passed the threshold!")
-			_on_health_reduced(-10)
-			ball.queue_free()  # Remove the ball
+	# Automatic ball spawning removed. Balls will only spawn on mouse click.
+	
+	if button_timer_running:
+		button_timer -= delta
+		popup_button.text = "Press Me! Time Left: %1.f" % button_timer
+		if button_timer <= 0:
+			button_timer_running = false
 
 	if not is_instance_valid(boss):
 		game_active = false  # Stop spawning new balls
@@ -57,11 +64,13 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(2.0).timeout
 		get_tree().change_scene_to_file("res://scenes/black_2.tscn")
 
-	if button_timer_running:
-		button_timer -= delta
-		popup_button.text = "Press Me! Time Left: %1.f" %button_timer
-		if button_timer <= 0:
-			button_timer_running = false
+# (Optional) Left here in case you need it later. It spawns a ball at the spawner's position.
+func spawn_ball() -> void:
+	if game_active:
+		var ball = ball_scene.instantiate()
+		ball.position = spawner.position
+		add_child(ball)
+		ball.add_to_group("balls")
 
 # Function to spawn a ball at the top of the screen at the mouse's x-coordinate
 func spawn_ball_at_mouse(mouse_x: float) -> void:
@@ -72,11 +81,10 @@ func spawn_ball_at_mouse(mouse_x: float) -> void:
 		add_child(ball)
 		ball.add_to_group("balls")
 		ball_count += 1
-		
 		if ball_count % 2 == 1:
 			show_popup_button()
 
-# Async function to spawn a ball and wait for a 2 second cooldown
+# Async function to spawn a ball and wait for a 4 second cooldown
 func spawn_ball_with_cooldown(mouse_x: float) -> void:
 	if can_spawn and game_active:
 		spawn_ball_at_mouse(mouse_x)
@@ -89,15 +97,15 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		spawn_ball_with_cooldown(event.position.x)
 
-# Function to reduce player health
+# Function to reduce player health (no longer called automatically)
 func _on_health_reduced(damage: int) -> void:
 	print("Health reduced by: " + str(damage))
-	player_health += damage  # Decrease health
+	player_health += damage
 	update_health_display()
 	if player_health <= 0:
 		print("Game Over!")
-		game_active = false  # Stop spawning new balls
-		await get_tree().create_timer(1.5).timeout  # Small delay before restarting
+		game_active = false
+		await get_tree().create_timer(1.5).timeout
 		get_tree().reload_current_scene()
 
 # Function to update the health label display

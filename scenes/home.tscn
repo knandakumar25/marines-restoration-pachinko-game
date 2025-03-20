@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://ofm16mjqa02y"]
 
 [ext_resource type="Script" path="res://scenes/home.gd" id="1_7jkor"]
-[ext_resource type="Texture2D" uid="uid://bcygj3vainrf5" path="res://cave.png" id="2_2twbi"]
+[ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="2_gu4yi"]
 [ext_resource type="Texture2D" uid="uid://dy3f2cubl1tq0" path="res://title.png" id="2_vx0qi"]
 
 [node name="Home" type="Node2D"]
 script = ExtResource("1_7jkor")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("2_2twbi")
+offset_left = -48.0
+offset_top = -59.0
+offset_right = 1095.0
+offset_bottom = 1352.0
+texture = ExtResource("2_gu4yi")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect2"]
 layout_mode = 1
