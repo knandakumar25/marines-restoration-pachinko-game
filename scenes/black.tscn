@@ -1,22 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cucm34w3jw48o"]
+[gd_scene load_steps=4 format=3 uid="uid://cucm34w3jw48o"]
 
 [ext_resource type="Script" path="res://scenes/black.gd" id="1_wuf3p"]
 [ext_resource type="Texture2D" uid="uid://ch4fshqh0gbhg" path="res://bg3.png" id="2_p2rvb"]
+[ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="3_sswtr"]
 
 [node name="Black" type="Node2D"]
 script = ExtResource("1_wuf3p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1141.0
+offset_right = 1110.0
 offset_bottom = 1129.0
 texture = ExtResource("2_p2rvb")
 
 [node name="Button" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 567.0
-offset_right = 709.0
-offset_bottom = 611.0
+offset_left = 468.0
+offset_top = 663.0
+offset_right = 647.0
+offset_bottom = 707.0
+theme_override_fonts/font = ExtResource("3_sswtr")
 text = "Continue"
 
 [node name="TextEdit" type="TextEdit" parent="TextureRect"]
@@ -26,14 +28,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -516.5
-offset_top = -349.5
-offset_right = 562.5
-offset_bottom = -23.5
+offset_left = -544.0
+offset_top = -537.5
+offset_right = 542.0
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "The torn page reveals that Varuna's judgment is passed through dreams. Varuna appears in those dreams in order to exploit his victims’  fears and guilt. The protagonist also learns that the only way to get rid of Varuna from his mind is through a series of doors in the cave he is currently in. Each door will give him a critical trial that will test his ability to face Varuna’s influence, combat his inner demons, free himself from Varuna's wrath, and give him supplies to rebuild the ship. The first door stands before him, with a script written in Sanskrit. As he touches the door, a pachinko machine appears in front of him. Varuna set up the cave so that each room can project the person's mind.
-The protagonist has to let the ball fall in the pachinko machine, which makes him realize the first door will only open if he successfully manages to defeat avatars of Varuna (boss) in each level. The ball represents his self-doubt. The map (level) resembles his mind, with each path (level) so supposed to suppress his emotions and bad memories. As he passes each level, he frees himself from Varuna's wrath and gets more supplies to rebuild the ship. However, with each failure, the protagonist will feel like he is about to collapse, Varuna’s whispers become louder, and start the level again to defeat the avatars."
+theme_override_fonts/font = ExtResource("3_sswtr")
+text = "-'You must free your mind'. That is what the torn page said. What does that mean? Varuna has been tormenting me through my dreams, so maybe I should... defeat him there.
+
+As you try to head out and leave the cave, a sudden rush of adrenaline streams through your body. You can't really tell if you are dreaming or not. What used to be a hollow passage to the outside, now lays a door that covers the passage entirely. To be free, of body and mind, you must expel Varuna from your mind.
+
+The cave will represent your mind, and you must use consiousness (the ball)) to weaken Varuna and force him to leave you alone. Be careful, as your attacks can also hit your memories, weakening you instead.
+
+Varuna has many mind tricks. His sea creature companies will try to protect him, and he also can materialize obstacles to defend himself.
+
+Every few shots, you will have to click a pop-up or Varuna will teleport until you click it again. Be quick.
+"
 wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

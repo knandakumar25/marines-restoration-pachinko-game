@@ -11,7 +11,6 @@ var boss
 var goal
 # Removed automatic spawning variables: spawn_timer and spawn_interval
 var player_health: int = 100  # Player's health
-var y_threshold = 900  # Y-position threshold (unused now)
 var game_active = true  # Flag to control game activity
 
 # Max values for randomization (unused in current code but available)
@@ -35,12 +34,17 @@ func _ready() -> void:
 	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
-	$PlayerHealth.position = Vector2(650, 900)
+	$PlayerHealth.position = Vector2(650, 50)
 	
 	# Connect the goal's ball_scored signal to the boss's take_damage function
 	goal.ball_scored.connect(boss.take_damage)
 	popup_button.pressed.connect(_on_button_pressed)
+	
+	for orb in get_tree().get_nodes_in_group("orbs"):
+		orb.ball_hit.connect(_on_health_reduced)
 
+	update_health_display()
+	popup_button.visible = false
 	# Initialize health display
 	update_health_display()
 	
@@ -100,7 +104,7 @@ func _input(event: InputEvent) -> void:
 # Function to reduce player health (no longer called automatically)
 func _on_health_reduced(damage: int) -> void:
 	print("Health reduced by: " + str(damage))
-	player_health += damage
+	player_health -= damage
 	update_health_display()
 	if player_health <= 0:
 		print("Game Over!")

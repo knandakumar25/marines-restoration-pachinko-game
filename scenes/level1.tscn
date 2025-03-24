@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cegot3c2qv225"]
+[gd_scene load_steps=17 format=3 uid="uid://cegot3c2qv225"]
 
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_ubtb4"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
 [ext_resource type="Texture2D" uid="uid://s0pg6w7jj2av" path="res://background2.webp" id="5_jbu84"]
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_kkl7v"]
+[ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="5_o8u46"]
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_jtv2e"]
+[ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="9_kaxs8"]
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_2ru3h"]
 [ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_wccl5"]
+[ext_resource type="PackedScene" uid="uid://bgbnmxt7t0q54" path="res://scenes/family_orb.tscn" id="12_too5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_au1mv"]
 
@@ -24,6 +27,18 @@ ball_scene = ExtResource("2_b84l5")
 goal_scene = ExtResource("5_kkl7v")
 boss_scene = ExtResource("6_jtv2e")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -657.0
+offset_top = -2.0
+offset_right = 1583.0
+offset_bottom = 1441.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_o8u46")
+
 [node name="Spawner" type="Marker2D" parent="."]
 position = Vector2(575, 53)
 scale = Vector2(0.1, 0.1)
@@ -36,10 +51,10 @@ scale = Vector2(1154, 1452)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = 5.0
-offset_right = 1117.0
-offset_bottom = 1457.0
+offset_left = -54.0
+offset_top = 2.0
+offset_right = 1100.0
+offset_bottom = 1454.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -68,16 +83,31 @@ offset_bottom = 34.0
 theme_override_font_sizes/font_size = 30
 
 [node name="Peg2" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(595, 236)
+position = Vector2(588, 232)
 
 [node name="Peg3" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(251, 489)
 
 [node name="Peg5" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(1071, 646)
+position = Vector2(1071, 711)
 
 [node name="Peg6" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(900, 491)
+
+[node name="Peg3" parent="Peg6" instance=ExtResource("3_j2l2o")]
+position = Vector2(-730, 309)
+
+[node name="Peg6" parent="Peg6" instance=ExtResource("3_j2l2o")]
+position = Vector2(-22, 381)
+
+[node name="Peg13" parent="Peg6" instance=ExtResource("3_j2l2o")]
+position = Vector2(-856, 210)
+
+[node name="Peg4" parent="Peg6" instance=ExtResource("3_j2l2o")]
+position = Vector2(-154, 391)
+
+[node name="Peg19" parent="Peg6" instance=ExtResource("3_j2l2o")]
+position = Vector2(-517, 379)
 
 [node name="Peg8" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(93, 634)
@@ -89,25 +119,134 @@ position = Vector2(502, 303)
 position = Vector2(677, 306)
 
 [node name="Peg11" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(1092, 531)
+position = Vector2(263, 652)
 
 [node name="Peg11" parent="Peg11" instance=ExtResource("3_j2l2o")]
-position = Vector2(-1053, -29)
+position = Vector2(163, 5)
+
+[node name="Peg8" parent="Peg11" instance=ExtResource("3_j2l2o")]
+position = Vector2(329, 19)
+
+[node name="Peg12" parent="Peg11" instance=ExtResource("3_j2l2o")]
+position = Vector2(499, 37)
+
+[node name="Peg11" parent="Peg11/Peg12" instance=ExtResource("3_j2l2o")]
+position = Vector2(167, -13)
 
 [node name="Peg12" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(175, 561)
 
 [node name="Walls3" parent="." instance=ExtResource("4_pnfuf")]
-position = Vector2(100, 700)
+position = Vector2(26, 632)
 script = ExtResource("10_2ru3h")
 
 [node name="Level" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 31.0
-offset_right = 162.0
-offset_bottom = 86.0
+offset_left = -9.0
+offset_top = 37.0
+offset_right = 149.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("9_kaxs8")
 theme_override_font_sizes/font_size = 40
 text = "Level 1"
+
+[node name="Peg7" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(747, 368)
+
+[node name="Peg7" parent="Peg7" instance=ExtResource("3_j2l2o")]
+position = Vector2(292, 440)
+
+[node name="Peg15" parent="Peg7" instance=ExtResource("3_j2l2o")]
+position = Vector2(-340, 578)
+
+[node name="Peg9" parent="Peg7/Peg15" instance=ExtResource("3_j2l2o")]
+position = Vector2(321, 6)
+
+[node name="Peg10" parent="Peg7/Peg15" instance=ExtResource("3_j2l2o")]
+position = Vector2(538, -90)
+
+[node name="Peg17" parent="Peg7" instance=ExtResource("3_j2l2o")]
+position = Vector2(-461, 525)
+
+[node name="Peg13" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(575, 501)
+
+[node name="Peg14" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(654, 428)
+
+[node name="Peg15" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(584, 359)
+
+[node name="Peg9" parent="Peg15" instance=ExtResource("3_j2l2o")]
+position = Vector2(-259, 51)
+
+[node name="Peg10" parent="Peg15" instance=ExtResource("3_j2l2o")]
+position = Vector2(-86, 58)
+
+[node name="Peg4" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(725, 499)
+
+[node name="Peg16" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(979, 577)
+
+[node name="Peg12" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-859, 174)
+
+[node name="Peg16" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-19, 192)
+
+[node name="Peg20" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-301, 199)
+
+[node name="Peg21" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-672, 189)
+
+[node name="Peg22" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-499, 196)
+
+[node name="Peg23" parent="Peg16" instance=ExtResource("3_j2l2o")]
+position = Vector2(-169, 196)
+
+[node name="Peg17" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(406, 360)
+
+[node name="Peg18" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(822, 429)
+
+[node name="Peg14" parent="Peg18" instance=ExtResource("3_j2l2o")]
+position = Vector2(-156, 557)
+
+[node name="Peg9" parent="Peg18" instance=ExtResource("3_j2l2o")]
+position = Vector2(-602, 424)
+
+[node name="Peg10" parent="Peg18" instance=ExtResource("3_j2l2o")]
+position = Vector2(-340, 554)
+
+[node name="Peg18" parent="Peg18" instance=ExtResource("3_j2l2o")]
+position = Vector2(-7, 494)
+
+[node name="Peg19" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(405, 489)
+
+[node name="Peg20" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(678, 592)
+
+[node name="Peg21" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(326, 574)
+
+[node name="Peg22" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(499, 581)
+
+[node name="Peg23" parent="." instance=ExtResource("3_j2l2o")]
+position = Vector2(829, 581)
+
+[node name="FamilyOrb" parent="." instance=ExtResource("12_too5r")]
+position = Vector2(9, 519)
+
+[node name="FamilyOrb" parent="FamilyOrb" instance=ExtResource("12_too5r")]
+position = Vector2(1012, -90)
+
+[node name="FamilyOrb2" parent="." instance=ExtResource("12_too5r")]
+position = Vector2(19, 1049)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 875.0
@@ -122,36 +261,3 @@ text = "Click Here"
 icon = ExtResource("11_wccl5")
 icon_alignment = 1
 expand_icon = true
-
-[node name="Peg7" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(736, 365)
-
-[node name="Peg13" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(575, 501)
-
-[node name="Peg14" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(654, 428)
-
-[node name="Peg15" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(581, 363)
-
-[node name="Peg9" parent="Peg15" instance=ExtResource("3_j2l2o")]
-position = Vector2(-259, 51)
-
-[node name="Peg10" parent="Peg15" instance=ExtResource("3_j2l2o")]
-position = Vector2(-86, 58)
-
-[node name="Peg4" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(725, 499)
-
-[node name="Peg16" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(976, 560)
-
-[node name="Peg17" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(406, 360)
-
-[node name="Peg18" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(805, 423)
-
-[node name="Peg19" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(405, 489)

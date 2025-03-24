@@ -1,17 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ofm16mjqa02y"]
+[gd_scene load_steps=5 format=3 uid="uid://ofm16mjqa02y"]
 
 [ext_resource type="Script" path="res://scenes/home.gd" id="1_7jkor"]
 [ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="2_gu4yi"]
 [ext_resource type="Texture2D" uid="uid://dy3f2cubl1tq0" path="res://title.png" id="2_vx0qi"]
+[ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="4_xu3ag"]
 
 [node name="Home" type="Node2D"]
 script = ExtResource("1_7jkor")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = -48.0
-offset_top = -59.0
-offset_right = 1095.0
-offset_bottom = 1352.0
+offset_left = -17.0
+offset_top = -54.0
+offset_right = 1126.0
+offset_bottom = 1357.0
 texture = ExtResource("2_gu4yi")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect2"]
@@ -36,15 +37,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.0
-offset_top = -31.5
-offset_right = 113.0
-offset_bottom = 31.5
+offset_left = -147.5
+offset_top = 243.5
+offset_right = 138.5
+offset_bottom = 328.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_xu3ag")
 theme_override_font_sizes/font_size = 40
 text = "Start Game"
 

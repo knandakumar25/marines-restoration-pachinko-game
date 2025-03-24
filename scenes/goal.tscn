@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7ual4o5m1q2g" path="res://varuna1.png" id="2_5vjbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyqse"]
-size = Vector2(85, 39)
+size = Vector2(85, 203)
 
 [node name="Goal" type="Area2D"]
 script = ExtResource("1_kk71j")
@@ -14,7 +14,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5vjbg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -70.5)
+position = Vector2(-1.5, -6.5)
 shape = SubResource("RectangleShape2D_vyqse")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,22 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxwap3g15xa7m"]
+[gd_scene load_steps=4 format=3 uid="uid://bxwap3g15xa7m"]
 
 [ext_resource type="Script" path="res://scenes/black_3.gd" id="1_qe5nx"]
-[ext_resource type="Texture2D" uid="uid://b3ve121lhu6pn" path="res://door.png" id="2_yabcx"]
+[ext_resource type="Texture2D" uid="uid://du41byqc1nveq" path="res://cave3.webp" id="2_snnii"]
+[ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="3_jj7ee"]
 
 [node name="Black3" type="Node2D"]
 script = ExtResource("1_qe5nx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1154.0
-offset_bottom = 648.0
-texture = ExtResource("2_yabcx")
+offset_right = 1120.0
+offset_bottom = 1116.0
+texture = ExtResource("2_snnii")
 
 [node name="Button3" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 965.0
-offset_top = 557.0
-offset_right = 1102.0
-offset_bottom = 597.0
+offset_left = 508.0
+offset_top = 652.0
+offset_right = 645.0
+offset_bottom = 692.0
+theme_override_fonts/font = ExtResource("3_jj7ee")
 text = "Continue"
 
 [node name="TextEdit" type="TextEdit" parent="TextureRect"]
@@ -26,13 +28,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -573.5
-offset_top = -59.5
-offset_right = 573.5
-offset_bottom = 59.5
+offset_left = -557.0
+offset_top = -409.0
+offset_right = 552.0
+offset_bottom = -232.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Varuna is now even more weakened than ever before. The third door, again written in Sanskrit is next. He learns that to open this door, he must get rid of another worse  memory, which is the fact that he tried to manipulate his fellow sailors, to free from Varuna. The pachinko machine becomes even more difficult, the balls falling even slower through a more unnavigatable maze as the protagonist tries to retake control of his mind from Varuna."
+theme_override_fonts/font = ExtResource("3_jj7ee")
+text = "Varuna is now even more weakened than ever before. As you fight him in your mind, you also fight off the memories of your moral choices. Leaving your home town and working for outsiders, leaving your family, manipulating your crew... it grows a toll on you."
 wrap_mode = 1
 
 [connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_3_pressed"]

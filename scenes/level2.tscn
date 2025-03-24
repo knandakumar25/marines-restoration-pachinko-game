@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ba5knm4mebcmc"]
+[gd_scene load_steps=16 format=3 uid="uid://ba5knm4mebcmc"]
 
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="1_80hhe"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_27m43"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_786cx"]
 [ext_resource type="Script" path="res://scenes/walls2.gd" id="9_m412s"]
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_imd2c"]
+[ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="10_vqs4m"]
 [ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_1u48m"]
+[ext_resource type="PackedScene" uid="uid://bgbnmxt7t0q54" path="res://scenes/family_orb.tscn" id="11_s6nce"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2a3j"]
 
@@ -35,10 +37,10 @@ scale = Vector2(1154, 1452)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
+offset_left = -53.0
 offset_top = -3.0
-offset_right = 1163.0
-offset_bottom = 1449.0
+offset_right = 1113.0
+offset_bottom = 1118.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -65,13 +67,7 @@ offset_top = 2.00001
 offset_right = 860.0
 offset_bottom = 302.0
 scale = Vector2(0.1, 0.1)
-
-[node name="PlayerHealth" type="Label" parent="."]
-offset_left = 33.0
-offset_top = 11.0
-offset_right = 73.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 30
+color = Color(1, 1, 1, 0)
 
 [node name="Peg2" parent="." instance=ExtResource("3_crcr2")]
 position = Vector2(801, 487)
@@ -125,8 +121,28 @@ offset_left = 28.0
 offset_top = 31.0
 offset_right = 162.0
 offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("10_vqs4m")
 theme_override_font_sizes/font_size = 40
 text = "Level 2"
+
+[node name="PlayerHealth" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 11.0
+offset_right = 73.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 30
+
+[node name="FamilyOrb" parent="." instance=ExtResource("11_s6nce")]
+position = Vector2(307, 918)
+
+[node name="FamilyOrb2" parent="." instance=ExtResource("11_s6nce")]
+position = Vector2(986, 934)
+
+[node name="FamilyOrb3" parent="." instance=ExtResource("11_s6nce")]
+position = Vector2(80, 918)
+
+[node name="FamilyOrb4" parent="." instance=ExtResource("11_s6nce")]
+position = Vector2(792, 922)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 496.0
