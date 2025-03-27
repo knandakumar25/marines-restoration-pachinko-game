@@ -8,6 +8,7 @@ var current_health: int
 func _ready() -> void:
 	current_health = max_health
 	update_health_display()
+	$Label.position = Vector2(200, -850)  # Set desired position here
 
 func update_health_display():
 	$Label.text = "Boss Health: " + str(current_health)

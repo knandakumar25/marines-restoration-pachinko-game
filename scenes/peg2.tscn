@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvag73kembxrf"]
+
+[ext_resource type="Texture2D" uid="uid://ck6yww67fjq7x" path="res://rock3.png" id="1_euvdv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dviu"]
+radius = 19.3132
+
+[node name="Peg" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -5)
+scale = Vector2(0.453571, 0.512805)
+texture = ExtResource("1_euvdv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -4)
+shape = SubResource("CircleShape2D_4dviu")

@@ -162,7 +162,7 @@ func _ready() -> void:
 	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
-	$PlayerHealth.position = Vector2(650, 900)
+	$PlayerHealth.position = Vector2(650, 50)
 	popup_button.pressed.connect(_on_button_pressed)
 	
 	# Connect the goal's ball_scored signal to the boss's take_damage function

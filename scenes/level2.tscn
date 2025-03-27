@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="1_80hhe"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_27m43"]
-[ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_crcr2"]
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_lknbl"]
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_aecsg"]
 [ext_resource type="Texture2D" uid="uid://3fjy80pld3nn" path="res://background1.webp" id="5_cxt7y"]
@@ -11,7 +10,8 @@
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_imd2c"]
 [ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="10_vqs4m"]
 [ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_1u48m"]
-[ext_resource type="PackedScene" uid="uid://bgbnmxt7t0q54" path="res://scenes/family_orb.tscn" id="11_s6nce"]
+[ext_resource type="PackedScene" uid="uid://c4e8et7v8xsbe" path="res://scenes/house_orb.tscn" id="12_hkjcn"]
+[ext_resource type="PackedScene" uid="uid://cvag73kembxrf" path="res://scenes/peg2.tscn" id="12_v706y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2a3j"]
 
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -53.0
 offset_top = -3.0
-offset_right = 1113.0
+offset_right = 1065.0
 offset_bottom = 1118.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -69,45 +69,6 @@ offset_bottom = 302.0
 scale = Vector2(0.1, 0.1)
 color = Color(1, 1, 1, 0)
 
-[node name="Peg2" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(801, 487)
-
-[node name="Peg3" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(601, 365)
-
-[node name="Peg5" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(997, 632)
-
-[node name="Peg6" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(410, 481)
-
-[node name="Peg8" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(315, 358)
-
-[node name="Peg9" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(515, 283)
-
-[node name="Peg10" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(679, 278)
-
-[node name="Peg11" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(229, 586)
-
-[node name="Peg12" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(601, 232)
-
-[node name="Peg13" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(593, 577)
-
-[node name="Peg14" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(955, 394)
-
-[node name="Peg15" parent="." instance=ExtResource("3_crcr2")]
-position = Vector2(768, 679)
-
-[node name="Peg15" parent="Peg15" instance=ExtResource("3_crcr2")]
-position = Vector2(-329, -16)
-
 [node name="Walls2" parent="." instance=ExtResource("4_lknbl")]
 position = Vector2(100, 400)
 script = ExtResource("9_m412s")
@@ -132,23 +93,11 @@ offset_right = 73.0
 offset_bottom = 53.0
 theme_override_font_sizes/font_size = 30
 
-[node name="FamilyOrb" parent="." instance=ExtResource("11_s6nce")]
-position = Vector2(307, 918)
-
-[node name="FamilyOrb2" parent="." instance=ExtResource("11_s6nce")]
-position = Vector2(986, 934)
-
-[node name="FamilyOrb3" parent="." instance=ExtResource("11_s6nce")]
-position = Vector2(80, 918)
-
-[node name="FamilyOrb4" parent="." instance=ExtResource("11_s6nce")]
-position = Vector2(792, 922)
-
 [node name="Button" type="Button" parent="."]
-offset_left = 496.0
-offset_top = 780.0
-offset_right = 743.0
-offset_bottom = 1075.0
+offset_left = 789.0
+offset_top = -42.0
+offset_right = 1036.0
+offset_bottom = 253.0
 theme_override_styles/hover = SubResource("StyleBoxEmpty_m2a3j")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_sn37d")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_arwv5")
@@ -156,3 +105,132 @@ text = "Click Here"
 icon = ExtResource("11_1u48m")
 icon_alignment = 1
 expand_icon = true
+
+[node name="FamilyOrb5" parent="." instance=ExtResource("12_hkjcn")]
+position = Vector2(100, 905)
+
+[node name="FamilyOrb" parent="." instance=ExtResource("12_hkjcn")]
+position = Vector2(370, 920)
+
+[node name="FamilyOrb2" parent="." instance=ExtResource("12_hkjcn")]
+position = Vector2(783, 923)
+
+[node name="FamilyOrb3" parent="." instance=ExtResource("12_hkjcn")]
+position = Vector2(954, 916)
+
+[node name="Peg" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(535, 319)
+
+[node name="Peg2" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(516, 322)
+
+[node name="Peg3" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(553, 321)
+
+[node name="Peg4" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(491, 340)
+
+[node name="Peg5" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(582, 341)
+
+[node name="Peg6" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(402, 398)
+
+[node name="Peg7" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(372, 414)
+
+[node name="Peg8" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(356, 433)
+
+[node name="Peg9" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(686, 425)
+
+[node name="Peg10" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(667, 408)
+
+[node name="Peg11" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(721, 441)
+
+[node name="Peg12" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(457, 493)
+
+[node name="Peg13" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(603, 503)
+
+[node name="Peg14" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(234, 812)
+
+[node name="Peg15" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(423, 825)
+
+[node name="Peg16" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(686, 829)
+
+[node name="Peg17" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(872, 815)
+
+[node name="Peg18" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(1014, 810)
+
+[node name="Peg19" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(29, 787)
+
+[node name="Peg20" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(223, 584)
+
+[node name="Peg21" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(877, 591)
+
+[node name="Peg22" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(318, 675)
+
+[node name="Peg23" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(773, 684)
+
+[node name="Peg24" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(41, 581)
+
+[node name="Peg25" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(1029, 574)
+
+[node name="Peg26" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(1045, 539)
+
+[node name="Peg27" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(25, 544)
+
+[node name="Peg28" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(20, 508)
+
+[node name="Peg29" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(1051, 503)
+
+[node name="Peg30" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(574, 1026)
+
+[node name="Peg31" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(130, 724)
+
+[node name="Peg32" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(914, 740)
+
+[node name="Peg33" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(1017, 685)
+
+[node name="Peg34" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(36, 657)
+
+[node name="Peg35" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(195, 421)
+
+[node name="Peg36" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(932, 434)
+
+[node name="Peg37" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(531, 611)
+
+[node name="Peg38" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(787, 776)
+
+[node name="Peg39" parent="." instance=ExtResource("12_v706y")]
+position = Vector2(322, 771)

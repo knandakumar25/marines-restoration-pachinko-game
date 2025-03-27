@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cegot3c2qv225"]
+[gd_scene load_steps=16 format=3 uid="uid://cegot3c2qv225"]
 
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_ubtb4"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
@@ -6,12 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
 [ext_resource type="Texture2D" uid="uid://s0pg6w7jj2av" path="res://background2.webp" id="5_jbu84"]
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_kkl7v"]
-[ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="5_o8u46"]
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_jtv2e"]
 [ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="9_kaxs8"]
 [ext_resource type="Script" path="res://scenes/walls3.gd" id="10_2ru3h"]
 [ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_wccl5"]
-[ext_resource type="PackedScene" uid="uid://bgbnmxt7t0q54" path="res://scenes/family_orb.tscn" id="12_too5r"]
+[ext_resource type="PackedScene" uid="uid://ddlc8iyl86y8q" path="res://scenes/ship_orb.tscn" id="13_5mcel"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_au1mv"]
 
@@ -27,18 +26,6 @@ ball_scene = ExtResource("2_b84l5")
 goal_scene = ExtResource("5_kkl7v")
 boss_scene = ExtResource("6_jtv2e")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -657.0
-offset_top = -2.0
-offset_right = 1583.0
-offset_bottom = 1441.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_o8u46")
-
 [node name="Spawner" type="Marker2D" parent="."]
 position = Vector2(575, 53)
 scale = Vector2(0.1, 0.1)
@@ -53,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -54.0
 offset_top = 2.0
-offset_right = 1100.0
+offset_right = 1065.0
 offset_bottom = 1454.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -89,7 +76,7 @@ position = Vector2(588, 232)
 position = Vector2(251, 489)
 
 [node name="Peg5" parent="." instance=ExtResource("3_j2l2o")]
-position = Vector2(1071, 711)
+position = Vector2(1057, 668)
 
 [node name="Peg6" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(900, 491)
@@ -239,15 +226,6 @@ position = Vector2(499, 581)
 [node name="Peg23" parent="." instance=ExtResource("3_j2l2o")]
 position = Vector2(829, 581)
 
-[node name="FamilyOrb" parent="." instance=ExtResource("12_too5r")]
-position = Vector2(9, 519)
-
-[node name="FamilyOrb" parent="FamilyOrb" instance=ExtResource("12_too5r")]
-position = Vector2(1012, -90)
-
-[node name="FamilyOrb2" parent="." instance=ExtResource("12_too5r")]
-position = Vector2(19, 1049)
-
 [node name="Button" type="Button" parent="."]
 offset_left = 875.0
 offset_top = 832.0
@@ -261,3 +239,12 @@ text = "Click Here"
 icon = ExtResource("11_wccl5")
 icon_alignment = 1
 expand_icon = true
+
+[node name="FamilyOrb3" parent="." instance=ExtResource("13_5mcel")]
+position = Vector2(72, 473)
+
+[node name="FamilyOrb" parent="." instance=ExtResource("13_5mcel")]
+position = Vector2(84, 987)
+
+[node name="FamilyOrb2" parent="." instance=ExtResource("13_5mcel")]
+position = Vector2(986, 367)

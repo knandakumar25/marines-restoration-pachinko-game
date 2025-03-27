@@ -34,7 +34,7 @@ func _ready() -> void:
 	boss.position = Vector2(100, 900)
 	add_child(boss)
 	
-	$PlayerHealth.position = Vector2(650, 900)
+	$PlayerHealth.position = Vector2(650, 50)
 	
 	# Connect the goal's ball_scored signal to the boss's take_damage function
 	goal.ball_scored.connect(boss.take_damage)
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		game_active = false  # Stop spawning new balls
 		$TextureRect/Finished.text = "Boss defeated! The door is now open! On to next level!"
 		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://scenes/black_2.tscn")
+		get_tree().change_scene_to_file("res://scenes/black_4.tscn")
 
 # (Optional) Left here in case you need it later. It spawns a ball at the spawner's position.
 func spawn_ball() -> void:
