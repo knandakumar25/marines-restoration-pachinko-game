@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddlc8iyl86y8q"]
 
-[ext_resource type="Script" path="res://scenes/orb.gd" id="1_addce"]
+[ext_resource type="Script" uid="uid://ddfetx0208dhq" path="res://scenes/orb.gd" id="1_addce"]
 [ext_resource type="Texture2D" uid="uid://colmwddjfdfyg" path="res://ship_orb.png" id="2_qp55h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nt4qp"]

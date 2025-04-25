@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cegot3c2qv225"]
 
-[ext_resource type="Script" path="res://scenes/level_1.gd" id="1_ubtb4"]
+[ext_resource type="Script" uid="uid://blxidr0ytpnxl" path="res://scenes/level_1.gd" id="1_ubtb4"]
 [ext_resource type="PackedScene" uid="uid://b75fcj0m2vgw" path="res://scenes/ball.tscn" id="2_b84l5"]
 [ext_resource type="PackedScene" uid="uid://cqbs0lx80w3np" path="res://scenes/peg.tscn" id="3_j2l2o"]
 [ext_resource type="PackedScene" uid="uid://bbwjgqamslapg" path="res://scenes/walls.tscn" id="4_pnfuf"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://uy1irbdyhatw" path="res://scenes/goal.tscn" id="5_kkl7v"]
 [ext_resource type="PackedScene" uid="uid://0pv8ioe2dyvm" path="res://scenes/boss.tscn" id="6_jtv2e"]
 [ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="9_kaxs8"]
-[ext_resource type="Script" path="res://scenes/walls3.gd" id="10_2ru3h"]
+[ext_resource type="Script" uid="uid://8gdrbi62wvkg" path="res://scenes/walls3.gd" id="10_2ru3h"]
 [ext_resource type="Texture2D" uid="uid://bv5b0ssyg4p27" path="res://textBox2.png" id="11_wccl5"]
 [ext_resource type="PackedScene" uid="uid://ddlc8iyl86y8q" path="res://scenes/ship_orb.tscn" id="13_5mcel"]
 

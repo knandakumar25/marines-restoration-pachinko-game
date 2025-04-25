@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0cbq05low4rq"]
 
-[ext_resource type="Script" path="res://scenes/black_2.gd" id="1_g3uv7"]
+[ext_resource type="Script" uid="uid://cxcuhwnq760l6" path="res://scenes/black_2.gd" id="1_g3uv7"]
 [ext_resource type="Texture2D" uid="uid://1cc8w710xi7x" path="res://bg2.png" id="2_ioej6"]
 [ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="3_cfouo"]
 

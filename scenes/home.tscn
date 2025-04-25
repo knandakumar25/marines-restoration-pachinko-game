@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ofm16mjqa02y"]
 
-[ext_resource type="Script" path="res://scenes/home.gd" id="1_7jkor"]
+[ext_resource type="Script" uid="uid://bjaobpt31r2jy" path="res://scenes/home.gd" id="1_7jkor"]
 [ext_resource type="Texture2D" uid="uid://bhapk71svxsah" path="res://bg1.png" id="2_gu4yi"]
 [ext_resource type="Texture2D" uid="uid://dy3f2cubl1tq0" path="res://title.png" id="2_vx0qi"]
 [ext_resource type="FontFile" uid="uid://fuxdhbshxsw2" path="res://Boldonse-Regular.ttf" id="4_xu3ag"]
@@ -43,9 +43,9 @@ offset_right = 138.5
 offset_bottom = 328.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_xu3ag")
 theme_override_font_sizes/font_size = 40
 text = "Start Game"
